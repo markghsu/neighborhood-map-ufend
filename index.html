@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/style.css">
 		
 		<title>Neighborhood Map</title>
 	</head>
@@ -17,13 +17,15 @@
 				</nav>
 				<div class="col-md-12"><h2 class="text-center">Neighborhood Map V-1: no api calls.</h2></div>
 			</header>
-			<div class="row">
-				<aside id="locations" class="col-xs-6 col-sm-4 col-md-3">
+			<div class="row row-offcanvas row-offcanvas-left">
+				<aside id="locations-sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar sidebar-offcanvas">
 					<section id="location-search">
 						<form id="search-form" data-bind="submit: searchLocations">
-							<input id='location-search-box' data-bind="textInput: searchPhrase">
+							<input id="location-search-box" data-bind="textInput: searchPhrase">
+							<div>
 							<button id="search-button" class="btn btn-primary" type="submit">🔍</button>
 							<button id="clear-search" class="btn btn-warning" data-bind="click: clearSearch">Clear</button>
+							</div>
 						</form>
 					</section>
 					<ul id="location-list" class="location-list list-unstyled" data-bind="foreach: locations">
@@ -33,14 +35,18 @@
 						</li>
 					</ul>
 				</aside>
-				<article class="col-xs-6 col-sm-8 col-md-9">
-					<div id="Map" data-bind="">
+				<article class="col-xs-12 col-sm-8 col-md-9">
+					<button id="show-btn" class="visible-xs btn" data-toggle="offcanvas" data-target="#locations-sidebar">Show Locations</button>
+					<div id="Map" data-bind="" style="height: 600px">
 					</div>
 				</article>
 			</div>
 		</div>
+		<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script src="bower_components/underscore/underscore-min.js"></script>
 		<script src="bower_components/knockout/dist/knockout.js"></script>
+		<script src="js/style.js"></script>
 		<script src="js/app-modelView.js"></script>
 	</body>
 </html>

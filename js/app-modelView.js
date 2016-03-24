@@ -13,8 +13,8 @@ var LocationsMV = function(){
 	self.allLocations.push(new Location('Hello','210 n','100 w','1359 Tustin Ranch, Tustin, CA 92780','Fake description here',[]));
 	self.allLocations.push(new Location('goodbye','210 n','100 w','shilllt','2nd description description here',[]));
 	self.allLocations.push(new Location('asdfads','210 n','100 w','1359 Tustin Ranch, Tustin, CA 92780','3rd description here',[]));
-	self.locations = ko.observableArray(self.allLocations());
 	self.allLocations.push(new Location('testing array shit','210 n','100 w','1359 Tustin Ranch, Tustin, CA 92780','3rd description here',[]));
+	self.locations = ko.observableArray(self.allLocations());
 	self.searchPhrase = ko.observable('');
 
 	self.searchLocations = function(form){
@@ -29,6 +29,5 @@ var LocationsMV = function(){
 		self.locations(self.allLocations());
 	}
 };
-
 
 ko.applyBindings(new LocationsMV());
