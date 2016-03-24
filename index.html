@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		
+		<title>Neighborhood Map</title>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<header class="row">
+				<nav class="row">
+					<ul><li>home</li></ul>
+				</nav>
+				<div class="col-md-12"><h2 class="text-center">Neighborhood Map V-1: no api calls.</h2></div>
+			</header>
+			<div class="row">
+				<aside id="locations" class="col-xs-6 col-sm-4 col-md-3">
+					<section id="location-search">
+						<form id="search-form" data-bind="submit: searchLocations">
+							<input id='location-search-box' data-bind="textInput: searchPhrase">
+							<button id="search-button" class="btn btn-primary" type="submit">🔍</button>
+							<button id="clear-search" class="btn btn-warning" data-bind="click: clearSearch">Clear</button>
+						</form>
+					</section>
+					<ul id="location-list" class="location-list list-unstyled" data-bind="foreach: locations">
+						<li class="location-bullet">
+							<h4 class="location-name" data-bind="text: name"></h4>
+							<p class="location-description" data-bind="text: description"></p>
+						</li>
+					</ul>
+				</aside>
+				<article class="col-xs-6 col-sm-8 col-md-9">
+					<div id="Map" data-bind="">
+					</div>
+				</article>
+			</div>
+		</div>
+		<script src="bower_components/underscore/underscore-min.js"></script>
+		<script src="bower_components/knockout/dist/knockout.js"></script>
+		<script src="js/app-modelView.js"></script>
+	</body>
+</html>
