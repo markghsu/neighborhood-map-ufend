@@ -4,6 +4,7 @@
 
 html,
 body {
+	height: 100%;
 	overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 
@@ -52,4 +53,12 @@ footer {
 		top: 0;
 		width: 50%; /* 6 columns */
 	}
+}
+
+/*
+ * Google Maps
+ * todo: make this responsive?
+ */
+.map {
+	height: 400px;
 }

@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
 		
@@ -15,7 +16,7 @@
 				<nav class="row">
 					<ul><li>home</li></ul>
 				</nav>
-				<div class="col-md-12"><h2 class="text-center">Neighborhood Map V-1: no api calls.</h2></div>
+				<div class="col-md-12"><h2 class="text-center">Neighborhood Map V-2: Google Map implemented</h2></div>
 			</header>
 			<div class="row row-offcanvas row-offcanvas-left">
 				<aside id="locations-sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar sidebar-offcanvas">
@@ -37,7 +38,7 @@
 				</aside>
 				<article class="col-xs-12 col-sm-8 col-md-9">
 					<button id="show-btn" class="visible-xs btn" data-toggle="offcanvas" data-target="#locations-sidebar">Show Locations</button>
-					<div id="Map" data-bind="" style="height: 600px">
+					<div class="map" id="map" data-bind="">
 					</div>
 				</article>
 			</div>
@@ -47,6 +48,9 @@
 		<script src="bower_components/underscore/underscore-min.js"></script>
 		<script src="bower_components/knockout/dist/knockout.js"></script>
 		<script src="js/style.js"></script>
+		<script src="js/map.js"></script>
 		<script src="js/app-modelView.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC98fvFC15qVE-rRv_pSkCuDh-Q8V5L6M&callback=initMap"
+    async defer></script>
 	</body>
 </html>
