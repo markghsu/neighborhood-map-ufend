@@ -3,8 +3,8 @@ var gmapRequestTimeout;
 var markers = {};
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
-	  center: {lat: -34.397, lng: 150.644},
-	  zoom: 8
+	  center: {lat: 34.01945, lng: -118.49119},
+	  zoom: 12
 	});
 	clearTimeout(gmapRequestTimeout);
 	$(document).trigger("maploaded");
@@ -12,7 +12,6 @@ function initMap() {
 
 function addMarker(loc) {
 	if(!map){//wait for map to be initialized prior to adding marker.
-		console.log("adding event "+ JSON.stringify(loc));
 		$(document).bind("maploaded",function(){
 			addMarker(loc);
 		});
@@ -27,8 +26,11 @@ function addMarker(loc) {
 		    position: myLatlng,
 		    title:"Hello World!"
 		});
-		console.log("adding "+loc.id);
 		marker.addListener('click', function(){
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+			setTimeout(function(){
+		        marker.setAnimation(null);
+		    },1000);
 			infowindow.open(map, marker);
 		});
 		marker.setMap(map);
@@ -38,7 +40,6 @@ function addMarker(loc) {
 
 function setLocations(ids){
 	_.each(markers,function(marker){
-		console.log(marker);
 		marker.setMap(null);
 	});
 	ids.forEach(function(i){
@@ -48,9 +49,12 @@ function setLocations(ids){
 
 function showAllMarkers(){
 	_.each(markers,function(marker){
-		console.log(marker);
 		marker.setMap(map);
 	});
+}
+
+function showInfo(id){
+	google.maps.event.trigger(markers[id], 'click');
 }
 
 $(document).ready(function () {

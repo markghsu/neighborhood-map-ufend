@@ -11,32 +11,31 @@
 		<title>Neighborhood Map</title>
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div class="container-fluid h100">
 			<header class="row">
-				<nav class="row">
-					<ul><li>home</li></ul>
-				</nav>
-				<div class="col-md-12"><h2 class="text-center">Neighborhood Map V-2: Google Map implemented</h2></div>
+				<div class="col-md-12"><h2 class="text-center">Santa Monica Surf Map</h2></div>
 			</header>
-			<div class="row row-offcanvas row-offcanvas-left">
+			<div class="row row-offcanvas row-offcanvas-left h100">
 				<aside id="locations-sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar sidebar-offcanvas">
 					<section id="location-search">
-						<form id="search-form" data-bind="submit: searchLocations">
-							<input id="location-search-box" data-bind="textInput: searchPhrase">
-							<div>
-							<button id="search-button" class="btn btn-primary" type="submit">🔍</button>
-							<button id="clear-search" class="btn btn-warning" data-bind="click: clearSearch">Clear</button>
+						<form id="search-form" class="form-inline" data-bind="submit: searchLocations">
+							<div class="form-group">
+								<input id="location-search-box" class="form-control" data-bind="textInput: searchPhrase" aria-label="search" placeholder="search">
+								<button id="search-button" class="btn btn-primary" type="submit">🔍</button>
+								<button id="clear-search" class="btn btn-warning" data-bind="click: clearSearch">Clear</button>
 							</div>
 						</form>
 					</section>
 					<ul id="location-list" class="location-list list-unstyled" data-bind="foreach: locations">
 						<li class="location-bullet">
-							<h4 class="location-name" data-bind="text: name"></h4>
-							<p class="location-description" data-bind="text: description"></p>
+							<a href="#" data-bind="click: openInfo">
+								<h4 class="location-name" data-bind="text: name"></h4>
+								<p class="location-description" data-bind="text: description"></p>
+							</a>
 						</li>
 					</ul>
 				</aside>
-				<article class="col-xs-12 col-sm-8 col-md-9">
+				<article class="col-xs-12 col-sm-8 col-md-9 h100">
 					<button id="show-btn" class="visible-xs btn" data-toggle="offcanvas" data-target="#locations-sidebar">Show Locations</button>
 					<div class="map" id="map" data-bind="">
 					</div>
