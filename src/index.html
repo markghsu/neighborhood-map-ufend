@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Neighborhood Map</title>
+	</head>
+	<body>
+		<div class="container-fluid h100">
+			<header class="row">
+				<div class="col-md-12"><h2 class="text-center">Santa Monica Surf Map</h2></div>
+			</header>
+			<div class="row row-offcanvas row-offcanvas-left h100">
+				<aside id="locations-sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar sidebar-offcanvas">
+					<section id="location-search">
+						<form id="search-form" class="form-inline" data-bind="submit: searchLocations">
+							<div class="form-group">
+								<input id="location-search-box" class="form-control" data-bind="textInput: searchPhrase" aria-label="search" placeholder="search">
+								<button id="search-button" class="btn btn-primary" type="submit">🔍</button>
+								<button id="clear-search" class="btn btn-warning" data-bind="click: clearSearch">Clear</button>
+							</div>
+						</form>
+					</section>
+					<ul id="location-list" class="location-list list-unstyled" data-bind="foreach: locations">
+						<li class="location-bullet" data-bind="attr: {id: id}">
+						<hr>
+							<a href="#" data-bind="click: openInfo">
+								<h4 class="location-name" data-bind="text: name"></h4>
+								<p class="location-description" data-bind="text: description"></p>
+							</a>
+						</li>
+					</ul>
+				</aside>
+				<article class="col-xs-12 col-sm-8 col-md-9 h100">
+					<button id="show-btn" class="visible-xs btn" data-toggle="offcanvas" data-target="#locations-sidebar">Show Locations</button>
+					<div class="map" id="map" data-bind="">
+					</div>
+				</article>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="bower_components/underscore/underscore-min.js"></script>
+		<script src="bower_components/knockout/dist/knockout.js"></script>
+		<script src="js/main.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC98fvFC15qVE-rRv_pSkCuDh-Q8V5L6M&callback=googleMap.initMap"
+    async defer></script>
+	</body>
+</html>
